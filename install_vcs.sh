@@ -32,11 +32,11 @@ check_ffmpeg(){
             if [ "${release}" == "centos" ] ; then
                 yum -y install epel-release > /dev/null 2>&1
                 yum -y install wget > /dev/null 2>&1
-                yum update > /dev/null 2>&1
+                yum -y update > /dev/null 2>&1
                 wget --no-check-certificate -qO ffmpeg.tar.xz https://ghproxy.com/https://github.com/zhai0122/OpenSourceCode/releases/download/ffmpeg/ffmpeg-git-amd64-static.tar.xz > /dev/null 2>&1
                 tar xf ffmpeg.tar.xz && cp -f ./ffmpeg-git-20220722-amd64-static/ffmpeg /usr/bin/ffmpeg && rm ./ffmpeg-git-20220722-amd64-static ffmpeg.tar.xz -rf > /dev/null 2>&1
             else
-                apt-get update > /dev/null 2>&1
+                apt-get -y update > /dev/null 2>&1
                 apt-get -y install wget > /dev/null 2>&1
                 apt-get -y install ffmpeg > /dev/null 2>&1
             fi
@@ -48,10 +48,10 @@ check_mediainfo(){
         echo "2/4 正在安装mediainfo"
             if [ "${release}" == "centos" ] ; then
                 yum -y install epel-release > /dev/null 2>&1
-                yum update > /dev/null 2>&1
+                yum -y update > /dev/null 2>&1
                 yum -y install mediainfo > /dev/null 2>&1
             else
-                apt-get update > /dev/null 2>&1
+                apt-get -y update > /dev/null 2>&1
                 apt-get -y install mediainfo > /dev/null 2>&1
             fi
     fi
@@ -61,11 +61,11 @@ check_imagemagick(){
     if [ ! -e '/usr/bin/convert' ]; then
         echo "3/4 正在安装imagemagick"
             if [ "${release}" == "centos" ]; then
-                yum update > /dev/null 2>&1
-                yum install ImageMagick -y > /dev/null 2>&1
+                yum -y update > /dev/null 2>&1
+                yum -y install ImageMagick > /dev/null 2>&1
             else
-                apt-get update > /dev/null 2>&1
-                apt-get install imagemagick -y > /dev/null 2>&1
+                apt-get -y update > /dev/null 2>&1
+                apt-get -y install imagemagick > /dev/null 2>&1
             fi
 
     fi
@@ -74,11 +74,11 @@ check_imagemagick(){
 }
 
 check_vcs(){
-    if [ ! -e '/usr/bin/vcs' ]; then
-        echo "4/4 正在安装vcs"
-        wget --no-check-certificate -qO vcs https://ghproxy.com/https://raw.githubusercontent.com/zhai0122/install_vcs/main/vcs-1.13.4.bash > /dev/null 2>&1
-        mv vcs /usr/bin/vcs && chmod u+x /usr/bin/vcs > /dev/null 2>&1
-    fi
+
+    echo "4/4 正在安装vcs"
+    wget --no-check-certificate -qO vcs https://ghproxy.com/https://raw.githubusercontent.com/zhai0122/install_vcs/main/vcs-1.13.4.bash > /dev/null 2>&1
+    mv -f vcs /usr/bin/vcs && chmod u+x /usr/bin/vcs > /dev/null 2>&1
+
 }
 main(){
     check_root;
