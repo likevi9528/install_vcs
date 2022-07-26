@@ -77,7 +77,8 @@ check_vcs(){
 
     echo "4/4 正在安装vcs"
     wget --no-check-certificate -qO vcs https://ghproxy.com/https://raw.githubusercontent.com/zhai0122/install_vcs/main/vcs-1.13.4.bash > /dev/null 2>&1
-    mv -f vcs /usr/bin/vcs && chmod u+x /usr/bin/vcs > /dev/null 2>&1
+    mv -f ./vcs /usr/bin/vcs && chmod u+x /usr/bin/vcs > /dev/null 2>&1
+    source /etc/profile
 
 }
 main(){
