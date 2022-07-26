@@ -64,7 +64,7 @@ check_imagemagick(){
                 yum update > /dev/null 2>&1
                 yum install ImageMagick -y > /dev/null 2>&1
             else
-                apt-get update /dev/null 2>&1
+                apt-get update > /dev/null 2>&1
                 apt-get install imagemagick -y > /dev/null 2>&1
             fi
 
