@@ -27,7 +27,7 @@ check_system() {
 }
 
 check_ffmpeg(){
-    if [ ! -e '/usr/bin/ffmpeg']; then
+    if [ ! -e '/usr/bin/ffmpeg' ]; then
         echo "正在安装ffmpeg"
             if [ "${release}" == "centos" ] ; then
                 yum -y install epel-release > /dev/null 2>&1
@@ -44,7 +44,7 @@ check_ffmpeg(){
 }
 
 check_mediainfo(){
-    if [ ! -e '/usr/bin/mediainfo']; then
+    if [ ! -e '/usr/bin/mediainfo' ]; then
         echo "正在安装mediainfo"
             if [ "${release}" == "centos" ] ; then
                 yum -y install epel-release
@@ -58,7 +58,7 @@ check_mediainfo(){
 }
 
 check_ImageMagick(){
-    if [ ! -e '/usr/bin/convert']; then
+    if [ ! -e '/usr/bin/convert' ]; then
         echo "正在安装ImageMagick"
             if [ "${release}" == "centos" ]; then
                 yum update > /dev/null 2>&1
@@ -74,7 +74,7 @@ check_ImageMagick(){
 }
 
 check_vcs(){
-    if [ ! -e '/usr/bin/vcs']; then
+    if [ ! -e '/usr/bin/vcs' ]; then
         echo "正在安装vcs"
         wget --no-check-certificate -qO vcs http://p.outlyer.net/files/vcs/vcs-1.13.4.bash > /dev/null 2>&1
         mv vcs /usr/bin/vcs && chmod u+x /usr/bin/vcs > /dev/null 2>&1
