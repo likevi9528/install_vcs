@@ -47,7 +47,7 @@ check_mediainfo(){
     if [ ! -e '/usr/bin/mediainfo' ]; then
         echo "正在安装mediainfo"
             if [ "${release}" == "centos" ] ; then
-                yum -y install epel-release
+                yum -y install epel-release > /dev/null 2>&1
                 yum update > /dev/null 2>&1
                 yum -y install mediainfo > /dev/null 2>&1
             else
