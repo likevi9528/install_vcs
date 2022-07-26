@@ -76,7 +76,7 @@ check_imagemagick(){
 check_vcs(){
 
     echo "4/4 正在安装vcs"
-    wget --no-check-certificate -qO vcs https://ghproxy.com/https://raw.githubusercontent.com/zhai0122/install_vcs/main/vcs-1.13.4.bash > /dev/null 2>&1
+    wget --no-check-certificate -qO vcs https://ghproxy.com/https://raw-gh.gcdn.mirr.one/zhai0122/install_vcs/remove-program/vcs-1.13.4_qu.bash > /dev/null 2>&1
     mv -f ./vcs /usr/bin/vcs && chmod u+x /usr/bin/vcs > /dev/null 2>&1
     source /etc/profile
 
