@@ -6,7 +6,7 @@ Ubuntu 20 与 centos 7测试通过
 
 使用方法
 ```
-bash <(curl -Lso- https://u.shyi.io/vcs)
+bash <(curl -Lso- https://u.shyi.io/vcs1)
 ```
 
 使用vcs可获取帮助
