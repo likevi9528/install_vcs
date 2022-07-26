@@ -8,3 +8,5 @@ Ubuntu 20 与 centos 7测试通过
 ```
 bash <(curl -Lso- https://u.shyi.io/vcs)
 ```
+
+使用vcs可获取帮助
