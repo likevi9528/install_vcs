@@ -28,7 +28,7 @@ check_system() {
 
 check_ffmpeg(){
     if [ ! -e '/usr/bin/ffmpeg' ]; then
-        echo "正在安装ffmpeg"
+        echo "1/4 正在安装ffmpeg"
             if [ "${release}" == "centos" ] ; then
                 yum -y install epel-release > /dev/null 2>&1
                 yum -y install wget > /dev/null 2>&1
@@ -45,7 +45,7 @@ check_ffmpeg(){
 
 check_mediainfo(){
     if [ ! -e '/usr/bin/mediainfo' ]; then
-        echo "正在安装mediainfo"
+        echo "2/4 正在安装mediainfo"
             if [ "${release}" == "centos" ] ; then
                 yum -y install epel-release > /dev/null 2>&1
                 yum update > /dev/null 2>&1
@@ -57,15 +57,15 @@ check_mediainfo(){
     fi
 }
 
-check_ImageMagick(){
+check_imagemagick(){
     if [ ! -e '/usr/bin/convert' ]; then
-        echo "正在安装ImageMagick"
+        echo "3/4 正在安装imagemagick"
             if [ "${release}" == "centos" ]; then
                 yum update > /dev/null 2>&1
                 yum install ImageMagick -y > /dev/null 2>&1
             else
                 apt-get update /dev/null 2>&1
-                apt-get install imagemagick -y /dev/null 2>&1
+                apt-get install imagemagick -y > /dev/null 2>&1
             fi
 
     fi
@@ -75,8 +75,8 @@ check_ImageMagick(){
 
 check_vcs(){
     if [ ! -e '/usr/bin/vcs' ]; then
-        echo "正在安装vcs"
-        wget --no-check-certificate -qO vcs http://p.outlyer.net/files/vcs/vcs-1.13.4.bash > /dev/null 2>&1
+        echo "4/4 正在安装vcs"
+        wget --no-check-certificate -qO vcs https://ghproxy.com/https://raw.githubusercontent.com/zhai0122/install_vcs/main/vcs-1.13.4.sh > /dev/null 2>&1
         mv vcs /usr/bin/vcs && chmod u+x /usr/bin/vcs > /dev/null 2>&1
     fi
 }
