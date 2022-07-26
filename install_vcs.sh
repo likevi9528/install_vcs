@@ -85,7 +85,7 @@ main(){
     check_system;
     check_ffmpeg;
     check_mediainfo;
-    check_ImageMagick;
+    check_imagemagick;
     check_vcs;
 }
 main
