@@ -31,11 +31,13 @@ check_ffmpeg(){
         echo "正在安装ffmpeg"
             if [ "${release}" == "centos" ] ; then
                 yum -y install epel-release > /dev/null 2>&1
+                yum -y install wget > /dev/null 2>&1
                 yum update > /dev/null 2>&1
                 wget --no-check-certificate -qO ffmpeg.tar.xz https://ghproxy.com/https://github.com/zhai0122/OpenSourceCode/releases/download/ffmpeg/ffmpeg-git-amd64-static.tar.xz > /dev/null 2>&1
                 tar xf ffmpeg.tar.xz && cp -f ./ffmpeg-git-20220722-amd64-static/ffmpeg /usr/bin/ffmpeg && rm ./ffmpeg-git-20220722-amd64-static ffmpeg.tar.xz -rf > /dev/null 2>&1
             else
                 apt-get update > /dev/null 2>&1
+                apt-get -y install wget > /dev/null 2>&1
                 apt-get -y install ffmpeg > /dev/null 2>&1
             fi
     fi
