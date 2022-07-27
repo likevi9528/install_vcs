@@ -87,7 +87,7 @@ select_mode() {
     echo -e " 3. 完全卸载vcs"
     echo -e " 4. 退出"
     while :; do echo
-        read -p " 请输入数字选择模式" selection
+        read -p " 请输入数字选择模式：" selection
         if [[ ! $selection =~ ^[1-4]$ ]]; then
             echo -ne "输入错误"
         else
