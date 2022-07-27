@@ -78,15 +78,68 @@ check_vcs(){
     echo "4/4 正在安装vcs"
     wget --no-check-certificate -qO vcs https://ghproxy.com/https://raw.githubusercontent.com/zhai0122/install_vcs/main/vcs-1.13.4.bash > /dev/null 2>&1
     mv -f ./vcs /usr/bin/vcs && chmod u+x /usr/bin/vcs > /dev/null 2>&1
-    source /etc/profile
+    source /etc/profile > /dev/null 2>&1
 
 }
-main(){
-    check_root;
-    check_system;
+select_mode() {
+    echo -e " 1. 安装vcs"
+    echo -e " 2. 卸载vcs"
+    echo -e " 3. 完全卸载vcs"
+    echo -e " 4. 退出"
+    while :; do echo
+        read -p " 请输入数字选择模式" selection
+        if [[ ! $selection =~ ^[1-4]$ ]]; then
+            echo -ne "输入错误"
+        else
+            break
+        fi
+}
+uninstall_vcs() {
+    if [ "${release}" == "centos" ]; then
+        yum -y autoremove mediainfo > /dev/null 2>&1
+        yum -y autoremove ImageMagick > /dev/null 2>&1
+        rm -f /usr/bin/ffmpeg > /dev/null 2>&1
+        rm -f /usr/bin/vcs > /dev/null 2>&1
+    else
+        apt-get -y autoremove mediainfo > /dev/null 2>&1
+        apt-get -y autoremove imagemagick > /dev/null 2>&1
+        apt-get -y autoremove ffmpeg > /dev/null 2>&1
+        rm -f /usr/bin/vcs > /dev/null 2>&1
+    fi
+}
+delete_vcs() {
+    if [ "${release}" == "centos" ]; then
+        yum -y remove mediainfo > /dev/null 2>&1
+        yum -y remove ImageMagick > /dev/null 2>&1
+        rm -f /usr/bin/ffmpeg > /dev/null 2>&1
+        rm -f /usr/bin/vcs > /dev/null 2>&1
+    else
+        apt-get -y remove mediainfo > /dev/null 2>&1
+        apt-get -y remove imagemagick > /dev/null 2>&1
+        apt-get -y remove ffmpeg > /dev/null 2>&1
+        rm -f /usr/bin/vcs > /dev/null 2>&1
+    fi
+}
+install_vcs() {
     check_ffmpeg;
     check_mediainfo;
     check_imagemagick;
     check_vcs;
+}
+
+main(){
+    check_root;
+    check_system;
+    [[ ${selection} == 4 ]] $$ exit 1
+    if [[ ${selection} == 1 ]]; then
+        install_vcs;
+    fi
+    if [[ ${selection} == 2 ]]
+        delete_vcs;
+    fi
+    if [[ ${selection} == 3 ]]
+        uninstall_vcs;
+    fi
+
 }
 main
