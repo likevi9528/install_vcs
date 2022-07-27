@@ -143,6 +143,6 @@ main(){
     if [[ ${selection} == 3 ]]; then
         uninstall_vcs;
     fi
-
+    source /etc/profile > /dev/null 2>&1
 }
 main
