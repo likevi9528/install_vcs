@@ -131,6 +131,7 @@ install_vcs() {
 main(){
     check_root;
     check_system;
+    select_mode;
     [[ ${selection} == 4 ]] && exit 1
     if [[ ${selection} == 1 ]]; then
         install_vcs;
