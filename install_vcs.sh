@@ -93,6 +93,7 @@ select_mode() {
         else
             break
         fi
+    done
 }
 uninstall_vcs() {
     if [ "${release}" == "centos" ]; then
