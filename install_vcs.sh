@@ -107,6 +107,7 @@ uninstall_vcs() {
         apt-get -y autoremove ffmpeg > /dev/null 2>&1
         rm -f /usr/bin/vcs > /dev/null 2>&1
     fi
+    echo -e " 已完全卸载vcs "
 }
 delete_vcs() {
     if [ "${release}" == "centos" ]; then
