@@ -136,10 +136,10 @@ main(){
     if [[ ${selection} == 1 ]]; then
         install_vcs;
     fi
-    if [[ ${selection} == 2 ]]
+    if [[ ${selection} == 2 ]]; then
         delete_vcs;
     fi
-    if [[ ${selection} == 3 ]]
+    if [[ ${selection} == 3 ]]; then
         uninstall_vcs;
     fi
 
